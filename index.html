@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zoek of een ingrediënt FODMAP-vriendelijk is voor mensen met het prikkelbare darm syndroom (PDS)." />
+  <title>Mag Nicole dit eten?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="pagina">
+
+    <!-- ── Koptekst ─────────────────────────────────────────── -->
+    <header>
+      <span class="logo" aria-hidden="true">🥗</span>
+      <h1>Mag Nicole dit eten?</h1>
+      <p class="ondertitel">FODMAP-gids voor het prikkelbare darm syndroom</p>
+    </header>
+
+    <!-- ── Zoekbalk ──────────────────────────────────────────── -->
+    <div class="zoekbalk-wrapper" role="search">
+      <span class="zoekbalk-icoon" aria-hidden="true">🔍</span>
+      <input
+        type="text"
+        id="zoekbalk"
+        class="zoekbalk"
+        placeholder="Typ een ingrediënt…"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Zoek een ingrediënt"
+        aria-autocomplete="list"
+        aria-controls="suggesties"
+      />
+      <!-- Autocomplete-suggesties -->
+      <div id="suggesties" class="suggesties" role="listbox" aria-label="Zoeksuggesties"></div>
+    </div>
+
+    <!-- ── Resultaatkaart ────────────────────────────────────── -->
+    <section id="resultaat" class="resultaat verborgen" aria-live="polite" aria-atomic="true">
+      <div class="resultaat-kaart">
+
+        <!-- Afbeelding / emoji -->
+        <div class="afbeelding-container">
+          <span id="voedsel-emoji" class="voedsel-emoji" aria-hidden="true"></span>
+          <img id="voedsel-foto" class="voedsel-foto verborgen" alt="" />
+        </div>
+
+        <!-- Informatie -->
+        <h2 id="voedsel-naam" class="voedsel-naam"></h2>
+        <div id="status-badge" class="status-badge" role="status"></div>
+        <p id="voedsel-notitie" class="voedsel-notitie"></p>
+
+      </div>
+    </section>
+
+    <!-- ── Geen resultaat ────────────────────────────────────── -->
+    <div id="geen-resultaat" class="geen-resultaat" role="status" aria-live="polite">
+      <p>😕 Geen overeenkomst gevonden.<br>
+         Probeer een andere spelling of een ander ingrediënt.</p>
+    </div>
+
+    <!-- ── Voettekst ─────────────────────────────────────────── -->
+    <footer>
+      <p>Gebaseerd op het FODMAP-dieet · Raadpleeg altijd een diëtist voor persoonlijk advies</p>
+    </footer>
+
+  </div><!-- /pagina -->
+
+  <!-- Database moet vóór app.js geladen worden -->
+  <script src="database.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+/* ============================================================
+   Mag Nicole dit eten? – FODMAP Zoeker  
+   Volledig responsief, pure CSS
+   ============================================================ */
+
+/* ── Reset & Base ───────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --kleur-achtergrond: #f0f4f8;
+  --kleur-tekst:       #2d3748;
+  --kleur-subtekst:    #718096;
+  --kleur-kaart:       rgba(255, 255, 255, 0.92);
+  --kleur-groen:       #27ae60;
+  --kleur-groen-licht: #2ecc71;
+  --kleur-geel:        #e67e22;
+  --kleur-geel-licht:  #f39c12;
+  --kleur-rood:        #c0392b;
+  --kleur-rood-licht:  #e74c3c;
+  --schaduw:           0 8px 40px rgba(0, 0, 0, 0.15);
+  --radius-groot:      24px;
+  --radius-pill:       50px;
+  --overgang:          0.55s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+               'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+  background-color: var(--kleur-achtergrond);
+  color: var(--kleur-tekst);
+  transition: background-color var(--overgang),
+              background-image  var(--overgang);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Achtergrond-thema's ─────────────────────────────────────── */
+body.thema-groen {
+  background-color: var(--kleur-groen);
+  background-image: linear-gradient(135deg,
+    var(--kleur-groen) 0%, var(--kleur-groen-licht) 100%);
+}
+
+body.thema-geel {
+  background-color: var(--kleur-geel);
+  background-image: linear-gradient(135deg,
+    var(--kleur-geel) 0%, var(--kleur-geel-licht) 100%);
+}
+
+body.thema-rood {
+  background-color: var(--kleur-rood);
+  background-image: linear-gradient(135deg,
+    var(--kleur-rood) 0%, var(--kleur-rood-licht) 100%);
+}
+
+/* ── Paginaopbouw ─────────────────────────────────────────────── */
+.pagina {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Koptekst ────────────────────────────────────────────────── */
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  transition: color var(--overgang);
+}
+
+header .logo {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.4rem;
+  animation: schommel 3s ease-in-out infinite;
+}
+
+@keyframes schommel {
+  0%, 100% { transform: rotate(-5deg); }
+  50%       { transform: rotate(5deg); }
+}
+
+header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--kleur-tekst);
+  transition: color var(--overgang);
+}
+
+body.thema-groen header h1,
+body.thema-geel  header h1,
+body.thema-rood  header h1 {
+  color: #fff;
+}
+
+.ondertitel {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  color: var(--kleur-subtekst);
+  transition: color var(--overgang);
+}
+
+body.thema-groen .ondertitel,
+body.thema-geel  .ondertitel,
+body.thema-rood  .ondertitel {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Zoekbalk ────────────────────────────────────────────────── */
+.zoekbalk-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 1.8rem;
+}
+
+.zoekbalk {
+  width: 100%;
+  padding: 1rem 1.4rem 1rem 3.4rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  box-shadow: var(--schaduw);
+  outline: none;
+  transition: box-shadow 0.25s;
+  color: var(--kleur-tekst);
+}
+
+.zoekbalk:focus {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+}
+
+.zoekbalk::placeholder {
+  color: #a0aec0;
+}
+
+.zoekbalk-icoon {
+  position: absolute;
+  left: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+/* ── Suggestielijst ───────────────────────────────────────────── */
+.suggesties {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  z-index: 200;
+}
+
+.suggestie-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.suggestie-item:last-child {
+  border-bottom: none;
+}
+
+.suggestie-item:hover,
+.suggestie-item.actief {
+  background: #f0f7ff;
+}
+
+.suggestie-emoji {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.suggestie-naam {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--kleur-tekst);
+}
+
+.suggestie-stip {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.stip-groen { background: var(--kleur-groen);      }
+.stip-geel  { background: var(--kleur-geel-licht); }
+.stip-rood  { background: var(--kleur-rood);        }
+
+/* ── Resultaatkaart ───────────────────────────────────────────── */
+.resultaat {
+  width: 100%;
+  max-width: 500px;
+}
+
+.resultaat.verborgen {
+  display: none;
+}
+
+.resultaat-kaart {
+  background: var(--kleur-kaart);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-groot);
+  padding: 2rem;
+  box-shadow: var(--schaduw);
+  text-align: center;
+  animation: kaart-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes kaart-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+/* ── Afbeelding/Emoji ─────────────────────────────────────────── */
+.afbeelding-container {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.04);
+  transition: background 0.3s;
+}
+
+.voedsel-emoji {
+  font-size: 6rem;
+  line-height: 1;
+  display: block;
+}
+
+.voedsel-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.voedsel-foto.verborgen {
+  display: none;
+}
+
+/* ── Voedselinfo ──────────────────────────────────────────────── */
+.voedsel-naam {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--kleur-tekst);
+  margin-bottom: 0.75rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.badge-groen { background: var(--kleur-groen);      }
+.badge-geel  { background: var(--kleur-geel);  color: #fff; }
+.badge-rood  { background: var(--kleur-rood);        }
+
+.voedsel-notitie {
+  font-size: 0.92rem;
+  color: var(--kleur-subtekst);
+  line-height: 1.6;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+/* ── Geen resultaat ───────────────────────────────────────────── */
+.geen-resultaat {
+  display: none;
+  background: var(--kleur-kaart);
+  border-radius: var(--radius-groot);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--schaduw);
+  width: 100%;
+  max-width: 500px;
+}
+
+.geen-resultaat.zichtbaar {
+  display: block;
+  animation: kaart-in 0.3s ease both;
+}
+
+.geen-resultaat p {
+  color: var(--kleur-subtekst);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+footer {
+  margin-top: auto;
+  padding-top: 2.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--kleur-subtekst);
+  transition: color var(--overgang);
+}
+
+body.thema-groen footer,
+body.thema-geel  footer,
+body.thema-rood  footer {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Responsiviteit ──────────────────────────────────────────── */
+@media (max-width: 480px) {
+  header .logo  { font-size: 2.4rem; }
+  header h1     { font-size: 1.7rem; }
+  .ondertitel   { font-size: 0.9rem; }
+
+  .zoekbalk {
+    font-size: 1rem;
+    padding: 0.85rem 1.2rem 0.85rem 3rem;
+  }
+
+  .voedsel-naam     { font-size: 1.5rem; }
+  .afbeelding-container {
+    width: 160px;
+    height: 160px;
+  }
+  .voedsel-emoji    { font-size: 5rem; }
+  .resultaat-kaart  { padding: 1.5rem; }
+}
+
+@media (max-width: 320px) {
+  header h1 { font-size: 1.4rem; }
+  .afbeelding-container {
+    width: 130px;
+    height: 130px;
+  }
+  .voedsel-emoji { font-size: 4rem; }
+}

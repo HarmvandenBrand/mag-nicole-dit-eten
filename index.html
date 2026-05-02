@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Zoek of een ingrediënt FODMAP-vriendelijk is voor mensen met het prikkelbare darm syndroom (PDS)." />
+  <meta name="description"
+    content="Zoek of een ingrediënt FODMAP-vriendelijk is voor mensen met het prikkelbare darm syndroom (PDS)." />
   <title>Mag Nicole dit eten?</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <div class="pagina">
@@ -21,19 +24,9 @@
     <!-- ── Zoekbalk ──────────────────────────────────────────── -->
     <div class="zoekbalk-wrapper" role="search">
       <span class="zoekbalk-icoon" aria-hidden="true">🔍</span>
-      <input
-        type="text"
-        id="zoekbalk"
-        class="zoekbalk"
-        placeholder="Typ een ingrediënt…"
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="off"
-        spellcheck="false"
-        aria-label="Zoek een ingrediënt"
-        aria-autocomplete="list"
-        aria-controls="suggesties"
-      />
+      <input type="text" id="zoekbalk" class="zoekbalk" placeholder="Typ een ingrediënt…" autocomplete="off"
+        autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Zoek een ingrediënt"
+        aria-autocomplete="list" aria-controls="suggesties" />
       <!-- Autocomplete-suggesties -->
       <div id="suggesties" class="suggesties" role="listbox" aria-label="Zoeksuggesties"></div>
     </div>
@@ -59,18 +52,23 @@
     <!-- ── Geen resultaat ────────────────────────────────────── -->
     <div id="geen-resultaat" class="geen-resultaat" role="status" aria-live="polite">
       <p>😕 Geen overeenkomst gevonden.<br>
-         Probeer een andere spelling of een ander ingrediënt.</p>
+        Probeer een andere spelling of een ander ingrediënt.</p>
     </div>
 
     <!-- ── Voettekst ─────────────────────────────────────────── -->
     <footer>
-      <p>Gebaseerd op het FODMAP-dieet · Raadpleeg altijd een diëtist voor persoonlijk advies</p>
+      <p>Gebaseerd op het FODMAP-dieet van de <a href="https://www.monash.edu/medicine/translational/gastroenterology"
+          target="_blank" rel="noopener noreferrer">Monash Universiteit</a> via <a href="https://www.ibsdiets.org"
+          target="_blank" rel="noopener noreferrer">IBSDiets</a>.
+      </p>
+      <br>
+      <p>Raadpleeg altijd een diëtist voor persoonlijk advies</p>
     </footer>
-
   </div><!-- /pagina -->
 
   <!-- Database moet vóór app.js geladen worden -->
   <script src="database.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>

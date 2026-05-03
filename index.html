@@ -21,6 +21,31 @@
       <p class="ondertitel">FODMAP-gids voor het prikkelbare darm syndroom</p>
     </header>
 
+    <!-- ── Info-knop (vast, rechts boven) ──────────────────────── -->
+    <button class="info-knop" id="info-knop" aria-label="Informatie over deze site">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+           aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+    </button>
+
+    <!-- ── Info-modal ─────────────────────────────────────────── -->
+    <div id="info-modal" class="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-modal-titel" hidden>
+      <div class="info-modal-inhoud">
+        <button class="info-modal-sluiten" id="info-modal-sluiten" aria-label="Sluit venster">&times;</button>
+        <h2 id="info-modal-titel">Over deze site</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h3>Hoe is deze site gemaakt?</h3>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <h3>Gebruik van bronnen</h3>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. De gegevens zijn gebaseerd op publiek beschikbare FODMAP-richtlijnen.</p>
+      </div>
+    </div>
+    <div id="info-overlay" class="info-overlay" hidden></div>
+
     <!-- ── Zoekbalk ──────────────────────────────────────────── -->
     <div class="zoekbalk-wrapper" role="search">
       <span class="zoekbalk-icoon" aria-hidden="true">🔍</span>
@@ -70,6 +95,34 @@
   <!-- Database moet vóór app.js geladen worden -->
   <script src="database.js"></script>
   <script src="app.js"></script>
+  <script>
+    (function () {
+      const knop    = document.getElementById('info-knop');
+      const modal   = document.getElementById('info-modal');
+      const overlay = document.getElementById('info-overlay');
+      const sluiten = document.getElementById('info-modal-sluiten');
+
+      function openModal() {
+        modal.hidden   = false;
+        overlay.hidden = false;
+        sluiten.focus();
+      }
+
+      function sluitModal() {
+        modal.hidden   = true;
+        overlay.hidden = true;
+        knop.focus();
+      }
+
+      knop.addEventListener('click', openModal);
+      sluiten.addEventListener('click', sluitModal);
+      overlay.addEventListener('click', sluitModal);
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !modal.hidden) sluitModal();
+      });
+    })();
+  </script>
 </body>
 
 </html>

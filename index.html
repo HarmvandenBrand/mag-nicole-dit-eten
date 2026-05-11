@@ -22,18 +22,72 @@
     </header>
 
     <!-- ── Info-knop (vast, rechts boven) ──────────────────────── -->
-    <button class="info-knop" id="info-knop" aria-label="Informatie over deze site" style="font-size: xx-large;">i</button>
+    <button class="info-knop" id="info-knop" aria-label="Informatie over deze site"
+      style="font-size: xx-large;">i</button>
 
     <!-- ── Info-modal ─────────────────────────────────────────── -->
     <div id="info-modal" class="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-modal-titel" hidden>
       <div class="info-modal-inhoud">
         <button class="info-modal-sluiten" id="info-modal-sluiten" aria-label="Sluit venster">&times;</button>
-        <h2 id="info-modal-titel">Over deze site</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        <section aria-labelledby="kleurencode-handleiding-titel">
+          <h1 id="kleurencode-handleiding-titel">Site handleiding</h1>
+          <p style="text-align: center;"><strong>TL;DR:</strong> Groen kan altijd, check de max hoeveelheid bij geel,
+            rood kan niet.</p>
+          <br>
+          <h2>Uitgebreid</h2>
+          <p>
+            FODMAP is een verzamelterm voor een aantal groepen voedingsstoffen die bij mensen met
+            prikkelbaredarmsyndroom kunnen leiden tot verzwaring van de klachten. De belangrijkste van deze groepen
+            zijn:
+          </p>
+          <ul>
+            <li>fructose</li>
+            <li>lactose</li>
+            <li>GOS (galacto-oligosachariden)</li>
+            <li>fructanen</li>
+            <li>polyolen</li>
+          </ul>
+
+          <p>De zoekmachine geeft of voeding veel of weinig FODMAPs bevat aan de hand van een kleurencode:</p>
+
+          <h3>Kleurencodes</h3>
+
+          <h4>Groen</h4>
+          <p>
+            Voeding met een groene markering is altijd veilig om te eten, of heeft zo weinig FODMAPs
+            dat het pas riskant wordt als je het in bizar grote hoeveelheden eet.
+          </p>
+
+          <h4>Geel</h4>
+          <p>
+            Voeding met een gele markering kan in beperkte hoeveelheden gegeten worden.
+            Hier staat altijd bij vermeld hoeveel de maximale veilige hoeveelheid is.
+          </p>
+
+          <h4>Rood</h4>
+          <p>
+            Voeding met een rode markering kan niet of slechts in bijzonder kleine hoeveelheden gegeten worden.
+          </p>
+
+          <h3>Fodmapwiskunde</h3>
+          <p>
+            De maximale hoeveelheid FODMAP die een persoon met prikkelbaredarmsyndroom mag hebben, tel je per soort
+            FODMAP.
+            Bijvoorbeeld, als iemand aan de maximale hoeveelheid fructanen zit door 65g aardbeien te eten,
+            moet die persoon niet nog een banaan gaan eten, aangezien daar ook fructanen inzitten.
+            De "veilige" hoeveelheid (onrijpe) banaan van 100g is dan niet meer veilig,
+            omdat hij/zij door de aardebeien al aan zijn/haar fructanenlimiet zit.
+            Wel kan diegene dan nog een aantal frambozen eten,
+            omdat de FODMAPs in frambozen voornamelijk fructose is, en niet fructanen.
+          </p>
+        </section>
         <h3>Hoe is deze site gemaakt?</h3>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p>Deze site is gemaakt met een beetje van mezelf en een beetje (een hoop) van Claude. Alle voedingsinformatie
+          is daarentegen met de hand nagelopen en gecontroleerd aan de hand van onderstaande bronnen.</p>
         <h3>Gebruik van bronnen</h3>
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. De gegevens zijn gebaseerd op publiek beschikbare FODMAP-richtlijnen.</p>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum. De gegevens zijn gebaseerd op publiek beschikbare FODMAP-richtlijnen.</p>
       </div>
     </div>
     <div id="info-overlay" class="info-overlay" hidden></div>
@@ -89,19 +143,19 @@
   <script src="app.js"></script>
   <script>
     (function () {
-      const knop    = document.getElementById('info-knop');
-      const modal   = document.getElementById('info-modal');
+      const knop = document.getElementById('info-knop');
+      const modal = document.getElementById('info-modal');
       const overlay = document.getElementById('info-overlay');
       const sluiten = document.getElementById('info-modal-sluiten');
 
       function openModal() {
-        modal.hidden   = false;
+        modal.hidden = false;
         overlay.hidden = false;
         sluiten.focus();
       }
 
       function sluitModal() {
-        modal.hidden   = true;
+        modal.hidden = true;
         overlay.hidden = true;
         knop.focus();
       }

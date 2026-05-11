@@ -4,7 +4,9 @@
    ============================================================ */
 
 /* ── Reset & Base ───────────────────────────────────────────── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,19 +14,19 @@
 
 :root {
   --kleur-achtergrond: #f0f4f8;
-  --kleur-tekst:       #2d3748;
-  --kleur-subtekst:    #718096;
-  --kleur-kaart:       rgba(255, 255, 255, 0.92);
-  --kleur-groen:       #27ae60;
+  --kleur-tekst: #2d3748;
+  --kleur-subtekst: #718096;
+  --kleur-kaart: rgba(255, 255, 255, 0.92);
+  --kleur-groen: #27ae60;
   --kleur-groen-licht: #2ecc71;
-  --kleur-geel:        #e67e22;
-  --kleur-geel-licht:  #f39c12;
-  --kleur-rood:        #c0392b;
-  --kleur-rood-licht:  #e74c3c;
-  --schaduw:           0 8px 40px rgba(0, 0, 0, 0.15);
-  --radius-groot:      24px;
-  --radius-pill:       50px;
-  --overgang:          0.55s ease;
+  --kleur-geel: #e67e22;
+  --kleur-geel-licht: #f39c12;
+  --kleur-rood: #c0392b;
+  --kleur-rood-licht: #e74c3c;
+  --schaduw: 0 8px 40px rgba(0, 0, 0, 0.15);
+  --radius-groot: 24px;
+  --radius-pill: 50px;
+  --overgang: 0.55s ease;
 }
 
 html {
@@ -33,12 +35,12 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-               'Helvetica Neue', Arial, sans-serif;
+    'Helvetica Neue', Arial, sans-serif;
   min-height: 100vh;
   background-color: var(--kleur-achtergrond);
   color: var(--kleur-tekst);
   transition: background-color var(--overgang),
-              background-image  var(--overgang);
+    background-image var(--overgang);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -46,19 +48,19 @@ body {
 body.thema-groen {
   background-color: var(--kleur-groen);
   background-image: linear-gradient(135deg,
-    var(--kleur-groen) 0%, var(--kleur-groen-licht) 100%);
+      var(--kleur-groen) 0%, var(--kleur-groen-licht) 100%);
 }
 
 body.thema-geel {
   background-color: var(--kleur-geel);
   background-image: linear-gradient(135deg,
-    var(--kleur-geel) 0%, var(--kleur-geel-licht) 100%);
+      var(--kleur-geel) 0%, var(--kleur-geel-licht) 100%);
 }
 
 body.thema-rood {
   background-color: var(--kleur-rood);
   background-image: linear-gradient(135deg,
-    var(--kleur-rood) 0%, var(--kleur-rood-licht) 100%);
+      var(--kleur-rood) 0%, var(--kleur-rood-licht) 100%);
 }
 
 /* ── Paginaopbouw ─────────────────────────────────────────────── */
@@ -87,8 +89,15 @@ header .logo {
 }
 
 @keyframes schommel {
-  0%, 100% { transform: rotate(-5deg); }
-  50%       { transform: rotate(5deg); }
+
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
 }
 
 header h1 {
@@ -100,8 +109,8 @@ header h1 {
 }
 
 body.thema-groen header h1,
-body.thema-geel  header h1,
-body.thema-rood  header h1 {
+body.thema-geel header h1,
+body.thema-rood header h1 {
   color: #fff;
 }
 
@@ -113,8 +122,8 @@ body.thema-rood  header h1 {
 }
 
 body.thema-groen .ondertitel,
-body.thema-geel  .ondertitel,
-body.thema-rood  .ondertitel {
+body.thema-geel .ondertitel,
+body.thema-rood .ondertitel {
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -206,9 +215,17 @@ body.thema-rood  .ondertitel {
   flex-shrink: 0;
 }
 
-.stip-groen { background: var(--kleur-groen);      }
-.stip-geel  { background: var(--kleur-geel-licht); }
-.stip-rood  { background: var(--kleur-rood);        }
+.stip-groen {
+  background: var(--kleur-groen);
+}
+
+.stip-geel {
+  background: var(--kleur-geel-licht);
+}
+
+.stip-rood {
+  background: var(--kleur-rood);
+}
 
 /* ── Resultaatkaart ───────────────────────────────────────────── */
 .resultaat {
@@ -232,8 +249,15 @@ body.thema-rood  .ondertitel {
 }
 
 @keyframes kaart-in {
-  from { opacity: 0; transform: translateY(24px) scale(0.96); }
-  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* ── Afbeelding/Emoji ─────────────────────────────────────────── */
@@ -287,9 +311,18 @@ body.thema-rood  .ondertitel {
   color: #fff;
 }
 
-.badge-groen { background: var(--kleur-groen);      }
-.badge-geel  { background: var(--kleur-geel);  color: #fff; }
-.badge-rood  { background: var(--kleur-rood);        }
+.badge-groen {
+  background: var(--kleur-groen);
+}
+
+.badge-geel {
+  background: var(--kleur-geel);
+  color: #fff;
+}
+
+.badge-rood {
+  background: var(--kleur-rood);
+}
 
 .voedsel-notitie {
   font-size: 0.92rem;
@@ -335,8 +368,8 @@ footer {
 }
 
 body.thema-groen footer,
-body.thema-geel  footer,
-body.thema-rood  footer {
+body.thema-geel footer,
+body.thema-rood footer {
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -369,15 +402,15 @@ body.thema-rood  footer {
 }
 
 body.thema-groen .info-knop,
-body.thema-geel  .info-knop,
-body.thema-rood  .info-knop {
+body.thema-geel .info-knop,
+body.thema-rood .info-knop {
   border-color: rgba(255, 255, 255, 0.75);
   color: rgba(255, 255, 255, 0.75);
 }
 
 body.thema-groen .info-knop:hover,
-body.thema-geel  .info-knop:hover,
-body.thema-rood  .info-knop:hover {
+body.thema-geel .info-knop:hover,
+body.thema-rood .info-knop:hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: #fff;
   color: #fff;
@@ -412,12 +445,17 @@ body.thema-rood  .info-knop:hover {
   border-radius: var(--radius-groot);
   box-shadow: 0 16px 60px rgba(0, 0, 0, 0.25);
   padding: 2rem 2rem 2rem;
-  max-width: 520px;
+  max-width: 90%;
   width: 100%;
   max-height: 85vh;
   overflow-y: auto;
   position: relative;
   animation: kaart-in 0.25s ease both;
+}
+
+.info-modal-inhoud h1 {
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .info-modal-inhoud h2 {
@@ -435,10 +473,27 @@ body.thema-rood  .info-knop:hover {
   color: var(--kleur-tekst);
 }
 
+.info-modal-inhoud h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 1.1rem 0 0.3rem;
+  color: var(--kleur-tekst);
+}
+
 .info-modal-inhoud p {
   font-size: 0.92rem;
   line-height: 1.65;
   color: var(--kleur-subtekst);
+}
+
+.info-modal-inhoud ul {
+  margin: 0.5rem 0 0.85rem 1.2rem;
+  color: var(--kleur-subtekst);
+}
+
+.info-modal-inhoud li {
+  margin: 0.2rem 0;
+  line-height: 1.5;
 }
 
 .info-modal-sluiten {
@@ -465,29 +520,52 @@ body.thema-rood  .info-knop:hover {
 
 /* ── Responsiviteit ──────────────────────────────────────────── */
 @media (max-width: 480px) {
-  header .logo  { font-size: 2.4rem; }
-  header h1     { font-size: 1.7rem; }
-  .ondertitel   { font-size: 0.9rem; }
+  header .logo {
+    font-size: 2.4rem;
+  }
+
+  header h1 {
+    font-size: 1.7rem;
+  }
+
+  .ondertitel {
+    font-size: 0.9rem;
+  }
 
   .zoekbalk {
     font-size: 1rem;
     padding: 0.85rem 1.2rem 0.85rem 3rem;
   }
 
-  .voedsel-naam     { font-size: 1.5rem; }
+  .voedsel-naam {
+    font-size: 1.5rem;
+  }
+
   .afbeelding-container {
     width: 160px;
     height: 160px;
   }
-  .voedsel-emoji    { font-size: 5rem; }
-  .resultaat-kaart  { padding: 1.5rem; }
+
+  .voedsel-emoji {
+    font-size: 5rem;
+  }
+
+  .resultaat-kaart {
+    padding: 1.5rem;
+  }
 }
 
 @media (max-width: 320px) {
-  header h1 { font-size: 1.4rem; }
+  header h1 {
+    font-size: 1.4rem;
+  }
+
   .afbeelding-container {
     width: 130px;
     height: 130px;
   }
-  .voedsel-emoji { font-size: 4rem; }
+
+  .voedsel-emoji {
+    font-size: 4rem;
+  }
 }

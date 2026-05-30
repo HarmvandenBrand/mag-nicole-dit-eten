@@ -1,43 +1,22 @@
 # Secties in database.js die al gedaan zijn (dus items uit onderstaande lijst zijn toegevoegd, en al bestaande items zijn nagelopen)
 - groenten
 - peulvruchten
-
+- fruit (alleen groen)
 
 
 # Fruit
 
-## groen
-Bananas, unripe (1 medium)
-Blueberries (1/4 cup)
-Cantaloupe (3/4 cup)
-Cranberry
-Clementine
-Melons e.g. Honeydew, Galia (1/2 cup)
-Kiwifruit (2 small)
-Lemon
-Orange
-Pineapple
-Raspberry (1/3 cup)
-Rhubarb
-Strawberry (5 medium)
-
 ## rood
-
-Apples
 Apricot
 Avocado
-Bananas, ripe
 Blackberries
 Grapefruit
-Grapes
 Mango
 Peaches
 Pears
 Plums
 Raisins
 Sultanas
-Watermelon
-
 
 
 # Vlees, vis, en vervangers

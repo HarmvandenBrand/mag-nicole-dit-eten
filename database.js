@@ -6,7 +6,8 @@ const voedingsmiddelen = [
 
 
   // TEMPLATE
-  // { naam: '', emoji: '', status: '', engelsNaam: '', zoektermen: [''], notitie: 'Veilig in normale hoeveelheden.' },
+  // { naam: '', emoji: '', status: '', engelsNaam: '', zoektermen: [''], fodmapsoort: '', notitie: 'Veilig in normale hoeveelheden.' },
+  // fodmapsoorten: [fructose, lactose, GOS (galactoöligosachariden), fructanen, polyolen]
 
   // Groenten
   { naam: 'Bamboescheut', emoji: '', status: 'groen', engelsNaam: 'bamboo shoot', zoektermen: ['bamboe', 'bamboescheuten'], notitie: 'Veilig in normale hoeveelheden.' },
@@ -26,21 +27,25 @@ const voedingsmiddelen = [
   { naam: 'Paksoi', emoji: '🥬', status: 'groen', engelsNaam: 'bok choy', zoektermen: ['bok choy', 'pak choi', 'chinese kool'], notitie: 'Veilig in normale hoeveelheden.' },
   { naam: 'Pastinaak', emoji: '🥕', status: 'groen', engelsNaam: 'parsnip', zoektermen: ['pastinaken', 'pinksternakel', 'witte wortel'], notitie: 'Veilig in normale hoeveelheden.' },
   { naam: 'Witlof', emoji: '🥬', status: 'groen', engelsNaam: 'belgian endive', zoektermen: ['witloof', 'belgian endive'], notitie: 'Veilig in normale hoeveelheden. De wortel is echter niet veilig. De wortel wordt soms als vezel verwerkt in vezelrijke producten.' },
+  { naam: 'Rabarber', emoji: '', status: 'groen', engelsNaam: 'rhubarb', zoektermen: ['rhubarb'], fodmapsoort: '', notitie: 'Veilig in normale hoeveelheden.' },
 
 
   // Fruit
-  { naam: 'Bosbes', emoji: '🫐', status: 'groen', engelsNaam: 'blueberry', zoektermen: ['bosbessen', 'blauwe bes', 'blueberry'], notitie: 'Veilig (max ca. 28 g of ¼ kopje).' },
-  { naam: 'Aardbei', emoji: '🍓', status: 'groen', engelsNaam: 'strawberry', zoektermen: ['aardbeien', 'strawberry'], notitie: 'Veilig in normale hoeveelheden.' },
-  { naam: 'Kiwi', emoji: '🥝', status: 'groen', engelsNaam: 'kiwifruit', zoektermen: ['kiwifruit', 'kiwis'], notitie: 'Veilig (max 2 kleine stuks).' },
-  { naam: 'Cantaloupe', emoji: '🍈', status: 'groen', engelsNaam: 'cantaloupe', zoektermen: ['rockmeloen', 'oranje meloen'], notitie: 'Veilig (max ¾ kopje).' },
-  { naam: 'Ananas', emoji: '🍍', status: 'groen', engelsNaam: 'pineapple', zoektermen: ['ananasschijf', 'verse ananas'], notitie: 'Veilig in normale hoeveelheden.' },
-  { naam: 'Druif', emoji: '🍇', status: 'groen', engelsNaam: 'grape', zoektermen: ['druiven', 'groene druiven', 'rode druiven', 'grapes'], notitie: 'Veilig in normale hoeveelheden.' },
-  { naam: 'Citroen', emoji: '🍋', status: 'groen', engelsNaam: 'lemon', zoektermen: ['citroensap', 'lemon', 'citroen'], notitie: 'Veilig in normale hoeveelheden.' },
-  { naam: 'Limoen', emoji: '🍋', status: 'groen', engelsNaam: 'lime', zoektermen: ['limoensap', 'lime'], notitie: 'Veilig in normale hoeveelheden.' },
-  { naam: 'Sinaasappel', emoji: '🍊', status: 'groen', engelsNaam: 'orange', zoektermen: ['sinaasappels', 'sinasappel', 'appelsien', "jus d'orange"], notitie: 'Veilig in normale hoeveelheden.' },
-  { naam: 'Clementine', emoji: '🍊', status: 'groen', engelsNaam: 'clementine', zoektermen: ['mandarijn', 'tangerine', 'satsuma'], notitie: 'Veilig in normale hoeveelheden.' },
-  { naam: 'Onrijpe banaan', emoji: '🍌', status: 'groen', engelsNaam: 'banana', zoektermen: ['groene banaan', 'banana'], notitie: 'Veilig als de banaan nog groen/geel en onrijp is (max 1 middelgrote).' },
-  { naam: 'Framboos', emoji: '🍓', status: 'groen', engelsNaam: 'raspberry', zoektermen: ['frambozen', 'raspberry'], notitie: 'Veilig in kleine hoeveelheden (max 30 stuks).' },
+  { naam: 'Bosbes', emoji: '🫐', status: 'groen', engelsNaam: 'blueberry', zoektermen: ['bosbessen', 'blauwe bes', 'blueberry'], fodmapsoort: "fructanen", notitie: 'Veilig (max ca. 500g).' },
+  { naam: 'Veenbes', emoji: '🍒', status: 'geel', engelsNaam: 'cranberry', zoektermen: ['cranberry'], fodmapsoort: 'fructanen', notitie: 'Veilig tot 13g.' },
+  { naam: 'Aardbei', emoji: '🍓', status: 'geel', engelsNaam: 'strawberry', zoektermen: ['aardbeien', 'strawberry'], fodmapsoort: 'fructose', notitie: 'Veilig tot 65g (ongeveer 5 stuks).' },
+  { naam: 'Kiwi', emoji: '🥝', status: 'groen', engelsNaam: 'kiwifruit', zoektermen: ['kiwifruit', 'groene kiwi', 'kiwis'], fodmapsoort: 'fructanen', notitie: 'Veilig tot 240g (ongeveer 3 stuks).' },
+  { naam: 'Gele kiwi', emoji: '🥝', status: 'geel', engelsNaam: 'golden kiwi', zoektermen: ['gouden kiwi', 'goldy', 'gouden kiwi'], fodmapsoort: 'fructanen', notitie: 'Veilig tot 150g (ongeveer 2 stuks).' },
+  { naam: 'Cantaloupe', emoji: '🍈', status: 'geel', engelsNaam: 'cantaloupe', zoektermen: ['rockmeloen', 'oranje meloen'], notitie: 'Veilig tot 120g.' },
+  { naam: 'Ananas', emoji: '🍍', status: 'geel', engelsNaam: 'pineapple', zoektermen: ['ananasschijf', 'verse ananas'], fodmapsoort: 'fructanen', notitie: 'Hangt sterk af van de verpakkingswijze. Verse ananas is veilig tot 140g, geblikte ananas op sap is veilig tot 90g, geblikte ananas op siroop is veilig tot 65g, en gedroogde ananas is veilig tot slechts 25g.' },
+  { naam: 'Druif', emoji: '🍇', status: 'geel', engelsNaam: 'grape', zoektermen: ['druiven', 'groene druiven', 'rode druiven', 'grapes'], fodmapsoort: 'fructose', notitie: 'Veilig tot 6 á 10 druiven.' },
+  { naam: 'Druivensap', emoji: '🍇', status: 'groen', engelsNaam: 'grape juice', zoektermen: ['druiven', 'grape juice'], fodmapsoort: 'fructose', notitie: 'Veilig in normale hoeveelheden.' },
+  { naam: 'Citroen', emoji: '🍋', status: 'geel', engelsNaam: 'lemon', zoektermen: ['citroensap', 'lemon', 'citroen'], notitie: 'Veilig tot 125g of 125ml.' },
+  { naam: 'Limoen', emoji: '🍋‍🟩', status: 'groen', engelsNaam: 'lime', zoektermen: ['limoensap', 'lime'], notitie: 'Veilig tot 250g of 250ml.' },
+  { naam: 'Sinaasappel', emoji: '🍊', status: 'geel', engelsNaam: 'orange', fodmapsoort: "fructose", zoektermen: ['sinaasappels', 'sinasappel', 'appelsien', "jus d'orange"], notitie: 'Veilig tot 130g (ongeveer één stuk).' },
+  { naam: 'Mandarijn', emoji: '🍊', status: 'geel', engelsNaam: 'clementine', zoektermen: ['clementine', 'tangerine', 'satsuma'], fodmapsoort: 'fructose', notitie: 'Veilig tot 90g.' },
+  { naam: 'Banaan', emoji: '🍌', status: 'geel', engelsNaam: 'banana', zoektermen: ['banana'], fodmapsoort: 'fructanen', notitie: 'Veilig als de banaan nog groen/geel en onrijp is (max 1 middelgrote of 100g). Een rijpe banaan bevat meer fructanen en is maar veilig tot 35g.' },
+  { naam: 'Framboos', emoji: '🍓', status: 'geel', engelsNaam: 'raspberry', zoektermen: ['frambozen', 'raspberry'], fodmapsoort: 'fructose', notitie: 'Veilig tot 60g (ongeveer 15 stuks).' },
 
   // Granen & Brood
   { naam: 'Witte rijst', emoji: '🍚', status: 'groen', engelsNaam: 'white rice', zoektermen: ['rijst', 'basmati', 'jasmijnrijst'], notitie: 'Veilig in normale hoeveelheden.' },
@@ -103,17 +108,16 @@ const voedingsmiddelen = [
   { naam: 'Maïs', emoji: '🌽', status: 'geel', engelsNaam: 'corn', zoektermen: ['mais', 'suikermaïs', 'maïskolf', 'sweetcorn', 'corn'], notitie: 'Kleine hoeveelheden (max ½ maïskolf of 100g).' },
   { naam: 'Kikkererwten', emoji: '🫘', status: 'geel', engelsNaam: 'chickpeas', zoektermen: ['kikkererwt', 'chickpeas', 'hummus', 'garbanzo'], notitie: 'Kleine hoeveelheden (max 50g, ingeblikt en afgespoeld).' },
   { naam: 'Havermelk', emoji: '🥛', status: 'geel', engelsNaam: 'oat milk', zoektermen: ['oatmilk', 'oat milk', 'haverdrink'], notitie: 'Kleine hoeveelheden (max 30 ml) vanwege fructanen.' },
-  { naam: 'Honingmeloen', emoji: '🍈', status: 'geel', engelsNaam: 'honeydew melon', zoektermen: ['meloen', 'groene meloen', 'honeydew'], notitie: 'Kleine hoeveelheden (max ½ kopje of 90 g).' },
-  { naam: 'Rijpe banaan', emoji: '🍌', status: 'geel', engelsNaam: 'ripe banana', zoektermen: ['banaan', 'gele banaan', 'vlekkerige banaan'], notitie: 'Kleine hoeveelheden (max ⅓ middelgrote rijpe banaan).' },
+  { naam: 'Honingmeloen', emoji: '🍈', status: 'geel', engelsNaam: 'honeydew melon', zoektermen: ['meloen', 'groene meloen', 'honeydew'], fodmapsoort: 'fructanen', notitie: 'Veilig in kleine hoeveelheden (max 90g).' },
   { naam: 'Avocado', emoji: '🥑', status: 'geel', engelsNaam: 'avocado', zoektermen: ['avocados', 'guacamole'], notitie: 'Kleine hoeveelheden (max ⅛ van een avocado of 30 g).' },
-  { naam: 'Rode biet', emoji: '🫚', status: 'geel', engelsNaam: 'beetroot', zoektermen: ['bietjes', 'bieten', 'beetroot', 'biet', 'kroot'], notitie: 'Normaliter is rode biet hoog in FODMAP. Maar in blik lossen de FODMAPs op in het vocht. Afgegoten ingeblikte rode biet is dus in kleine hoeveelheden (max 3 plakjes ingeblikt) veilig.' },
+  { naam: 'Rode biet', emoji: '🫜', status: 'geel', engelsNaam: 'beetroot', zoektermen: ['bietjes', 'bieten', 'beetroot', 'biet', 'kroot'], notitie: 'Normaliter is rode biet hoog in FODMAP. Maar in blik lossen de FODMAPs op in het vocht. Afgegoten ingeblikte rode biet is dus in kleine hoeveelheden (max 3 plakjes ingeblikt) veilig.' },
   { naam: 'Erwt', emoji: '🫘', status: 'geel', engelsNaam: 'pea', zoektermen: ['erwten', 'erwt', 'erwtjes', 'doperwt', 'pea', 'green pea', 'blauwschokker', 'kapucijner', 'grauwe erwt', 'rozijnerwt', 'ronde groene erwt'], notitie: 'Alleen veilig in hele kleine porties (max 20g).' },
   { naam: 'Goudse kaas', emoji: '🧀', status: 'geel', engelsNaam: 'gouda cheese', zoektermen: ['gouda', 'goudse', 'jonge kaas', 'jonge gouda'], notitie: 'Bevat iets meer lactose dan harde kazen – kleine porties zijn meestal goed.' },
   { naam: 'Brie', emoji: '🧀', status: 'geel', engelsNaam: 'brie cheese', zoektermen: ['brie kaas', 'camembert'], notitie: 'Kleine hoeveelheden zijn doorgaans goed te verdragen.' },
   { naam: 'Rode paprika', emoji: '🫑', status: 'geel', engelsNaam: 'red bell pepper', zoektermen: ['paprika', 'rode paprika', 'peper'], notitie: 'Veilig in matige hoeveelheden (max 45g).' },
   { naam: 'Gele paprika', emoji: '🫑', status: 'geel', engelsNaam: 'yellow bell pepper', zoektermen: ['paprika', 'gele paprika', 'peper'], notitie: 'Veilig in matige hoeveelheden (max 35g).' },
   { naam: 'Pompoen', emoji: '🎃', status: 'geel', engelsNaam: 'pumpkin', zoektermen: ['butternut pompoen', 'flespompoen', 'kabocha', 'squash', 'kalebas'], notitie: 'Veilig in kleine hoeveelheden (max 60g).' },
-  { naam: 'Lente-ui', emoji: '🌿', status: 'geel', engelsNaam: 'scallion', zoektermen: ['lente-ui', 'lente ui', 'bosui', 'sla-ui', 'pijpajuin', 'schalulleke', 'stengelui', 'spring onion'], notitie: 'Het groene deel is veilig, de witte stronk vermijden.' },
+  { naam: 'Lente-ui', emoji: '🌿', status: 'geel', engelsNaam: 'scallion', zoektermen: ['lente-ui', 'lente ui', 'bosui', 'sla-ui', 'pijpajuin', 'schalulleke', 'stengelui', 'spring onion'], fodmapsoort: 'fructanen', notitie: 'Het groene deel is veilig, de witte stronk vermijden.' },
   { naam: 'Zoete aardappel', emoji: '🍠', status: 'geel', engelsNaam: 'sweet potato', zoektermen: ['bataat', 'sweet potato'], notitie: 'Veilig in kleine hoeveelheden (max 75 g).' },
   { naam: 'Tomaat', emoji: '🍅', status: 'geel', engelsNaam: 'tomato', zoektermen: ['tomaatje', 'cherry tomaat', 'roma tomaat', 'tomaten'], notitie: 'Veilig (max 1 kleine of 65g).' },
   { naam: 'Raap', emoji: '🥕', status: 'geel', engelsNaam: 'turnip', zoektermen: ['rapen', 'knolraap', 'meiraap', 'meiknolletje', 'consumptieraap', 'herfstknol', 'herfstraap', 'tol', 'knol'], notitie: 'Veilig in kleine hoeveelheden (max ½ stuks).' },
@@ -122,8 +126,8 @@ const voedingsmiddelen = [
   // ─── ROOD: Beter vermijden ───────────────────────────────────────────────
 
   // Groenten
-  { naam: 'Knoflook', emoji: '🧄', status: 'rood', engelsNaam: 'garlic', zoektermen: ['knoflookteen', 'knoflookpoeder', 'knoflooksaus', 'garlic'], notitie: 'Hoog FODMAP (fructanen) – vermijden, ook knoflookpoeder. Gebruik knoflookolie als alternatief.' },
-  { naam: 'Ui', emoji: '🧅', status: 'rood', engelsNaam: 'onion', zoektermen: ['uien', 'gele ui', 'witte ui', 'rode ui', 'sjalot', 'onion'], notitie: 'Hoog FODMAP (fructanen) – vermijden, ook uienpoeder en gedroogde ui.' },
+  { naam: 'Knoflook', emoji: '🧄', status: 'rood', engelsNaam: 'garlic', zoektermen: ['knoflookteen', 'knoflookpoeder', 'knoflooksaus', 'garlic'], fodmapsoort: 'fructanen', notitie: 'Hoog FODMAP (fructanen) – vermijden, ook knoflookpoeder. Gebruik knoflookolie als alternatief.' },
+  { naam: 'Ui', emoji: '🧅', status: 'rood', engelsNaam: 'onion', zoektermen: ['uien', 'gele ui', 'witte ui', 'rode ui', 'sjalot', 'onion'], fodmapsoort: 'fructanen', notitie: 'Hoog FODMAP (fructanen) – vermijden, ook uienpoeder en gedroogde ui.' },
   { naam: 'Bloemkool', emoji: '🥦', status: 'rood', engelsNaam: 'cauliflower', zoektermen: ['cauliflower', 'bloemkool'], notitie: 'Hoog FODMAP – vermijden.' },
   { naam: 'Asperge', emoji: '🌱', status: 'rood', engelsNaam: 'asparagus', zoektermen: ['asperges', 'witte asperge', 'groene asperge', 'asparagus'], notitie: 'Hoog FODMAP – vermijden.' },
   { naam: 'Champignon', emoji: '🍄', status: 'rood', engelsNaam: 'mushroom', zoektermen: ['paddenstoel', 'paddestoelen', 'mushroom', 'shiitake', 'oesterzwam', 'champignonnetjes'], notitie: 'Hoog FODMAP (polyolen) – vermijden.' },
@@ -131,21 +135,21 @@ const voedingsmiddelen = [
   { naam: 'Groenekool', emoji: '🥬', status: 'rood', engelsNaam: 'savoy cabbage', zoektermen: ['savooiekool', 'savooikool', 'groene savooiekool', 'gele savooiekool', 'butterkohl', 'groene spitskool', 'groene kool', 'witte kool'], notitie: 'Hoog FODMAP – vermijden. Niet te verwarren met gewone kool of rodekool.' },
 
   // Fruit
-  { naam: 'Appel', emoji: '🍎', status: 'rood', engelsNaam: 'apple', zoektermen: ['appels', 'apple', 'appelmoes', 'appelsap'], notitie: 'Hoog FODMAP (fructose en polyolen) – vermijden.' },
+  { naam: 'Appel', emoji: '🍎', status: 'rood', engelsNaam: 'apple', zoektermen: ['appels', 'apple', 'appelmoes', 'appelsap'], fodmapsoort: ["fructose", "polyolen", "GOS"], notitie: 'Hoog FODMAP (fructose, polyolen en GOS) – vermijden. Alleen veilig tot 25g.' },
   { naam: 'Peer', emoji: '🍐', status: 'rood', engelsNaam: 'pear', zoektermen: ['peren', 'pear'], notitie: 'Hoog FODMAP – vermijden.' },
   { naam: 'Perzik', emoji: '🍑', status: 'rood', engelsNaam: 'peach', zoektermen: ['perziken', 'peach'], notitie: 'Hoog FODMAP – vermijden.' },
   { naam: 'Abrikoos', emoji: '🍑', status: 'rood', engelsNaam: 'apricot', zoektermen: ['abrikozen', 'apricot', 'gedroogde abrikoos'], notitie: 'Hoog FODMAP – vermijden.' },
   { naam: 'Nectarine', emoji: '🍑', status: 'rood', engelsNaam: 'nectarine', zoektermen: ['nectarines'], notitie: 'Hoog FODMAP – vermijden.' },
   { naam: 'Mango', emoji: '🥭', status: 'rood', engelsNaam: 'mango', zoektermen: ["mango's", 'verse mango'], notitie: 'Hoog FODMAP – vermijden.' },
-  { naam: 'Watermeloen', emoji: '🍉', status: 'rood', engelsNaam: 'watermelon', zoektermen: ['watermeloen', 'watermelon'], notitie: 'Hoog FODMAP – vermijden.' },
+  { naam: 'Watermeloen', emoji: '🍉', status: 'rood', engelsNaam: 'watermelon', zoektermen: ['watermeloen', 'watermelon'], fodmapsoort: ['fructose', 'fructanen'], notitie: 'Hoog FODMAP – vermijden.' },
   { naam: 'Braam', emoji: '🫐', status: 'rood', engelsNaam: 'blackberry', zoektermen: ['bramen', 'blackberry', 'blackberries'], notitie: 'Hoog FODMAP – vermijden.' },
   { naam: 'Kers', emoji: '🍒', status: 'rood', engelsNaam: 'cherry', zoektermen: ['kersen', 'cherry', 'cherries', 'zure kers'], notitie: 'Hoog FODMAP – vermijden.' },
   { naam: 'Pruim', emoji: '🍑', status: 'rood', engelsNaam: 'plum', zoektermen: ['pruimen', 'plum', 'pruimedant', 'gedroogde pruim'], notitie: 'Hoog FODMAP – vermijden.' },
   { naam: 'Rozijn', emoji: '🍇', status: 'rood', engelsNaam: 'raisin', zoektermen: ['rozijnen', 'raisin', 'sultana', 'krent', 'krenten'], notitie: 'Hoog FODMAP – vermijden.' },
 
   // Granen & Brood
-  { naam: 'Tarwebrood', emoji: '🍞', status: 'rood', engelsNaam: 'wheat bread', zoektermen: ['brood', 'witbrood', 'volkorenbrood', 'broodjes', 'baguette', 'wheat bread'], notitie: 'Hoog FODMAP (fructanen) – gebruik glutenvrij brood als alternatief.' },
-  { naam: 'Tarwepasta', emoji: '🍝', status: 'rood', engelsNaam: 'pasta', zoektermen: ['pasta', 'spaghetti', 'penne', 'fusilli', 'linguine', 'macaroni'], notitie: 'Hoog FODMAP – gebruik glutenvrije pasta als alternatief.' },
+  { naam: 'Tarwebrood', emoji: '🍞', status: 'rood', engelsNaam: 'wheat bread', zoektermen: ['brood', 'witbrood', 'volkorenbrood', 'broodjes', 'baguette', 'wheat bread'], fodmapsoort: 'fructanen', notitie: 'Hoog FODMAP (fructanen) – gebruik glutenvrij brood als alternatief.' },
+  { naam: 'Tarwepasta', emoji: '🍝', status: 'rood', engelsNaam: 'pasta', zoektermen: ['pasta', 'spaghetti', 'penne', 'fusilli', 'linguine', 'macaroni'], fodmapsoort: 'fructanen', notitie: 'Hoog FODMAP – gebruik glutenvrije pasta als alternatief.' },
   { naam: 'Roggebrood', emoji: '🍞', status: 'rood', engelsNaam: 'rye bread', zoektermen: ['rogge', 'donker brood', 'pumpernickel', 'rye bread'], notitie: 'Hoog FODMAP – vermijden.' },
   { naam: 'Couscous', emoji: '🌾', status: 'rood', engelsNaam: 'couscous', zoektermen: ['couscous'], notitie: 'Hoog FODMAP – gebruik quinoa of rijst als alternatief.' },
   { naam: 'Bulgur', emoji: '🌾', status: 'rood', engelsNaam: 'bulgur', zoektermen: ['bulgur', 'bulgurtarwe'], notitie: 'Hoog FODMAP – vermijden.' },

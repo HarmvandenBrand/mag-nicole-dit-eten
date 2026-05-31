@@ -23,7 +23,8 @@
 // ###   Toevoegingen en interpretaties bij verwerking van boekje naar database   ###
 
 // - In het boekje wordt de portiegrootte "a cup" gebruikt. Het is onduidelijk of dat een Amerikaanse cup is (237 ml) of 
-//   een metrische cup (250 ml). Voor de vertaling in deze database gaan we uit van een metrische cup van 250 ml.
+//   een metrische cup (250 ml). Voor de vertaling in deze database gaan we uit van een metrische cup van 250 ml. Om verwarring 
+//   te voorkomen, wordt de term 'cup' niet gebruikt, maar rekenen we direct om naar ml, bijvoorbeeld: '½ cup' wordt '125 ml'.
 // - Sommige voedingsmiddelen hebben in het boekje meerdere listings, met verschillende portiegroottes en kleurcodes. In 
 //   deze database is ervoor gekozen om in die gevallen de listings samen te voegen tot één listing, om verwarring en informatie-overload
 //   te voorkomen. In dat geval bevat het status-veld meerdere waarden (bijvoorbeeld ['groen', 'geel']),
@@ -75,58 +76,30 @@ const voedingsmiddelen = [
   { naam: 'Tarwebrood, volkoren', emoji: '🍞', status: ['rood'], engelsNaam: 'Wheat bread, wholemeal', zoektermen: ['tarwe', 'volkoren', 'volkorenbrood'], fodmapsoort: { fructanen: 'rood' , GOS: 'rood'}, portiegrootte: '2 sneden, 48g', notitie: '' },
 
 
+  // Ontbijtgranen
+  { naam: 'Cornflakes', emoji: '🥣', status: ['geel'], engelsNaam: 'Corn flakes', zoektermen: ['mais', 'vlokken', 'cornflakes', 'maïsvlokken'], fodmapsoort: { fructanen: 'geel' }, portiegrootte: '250ml, 30g', notitie: '' },
+  { naam: 'Cornflakes, glutenvrij', emoji: '🥣', status: ['groen'], engelsNaam: 'Corn flakes, gluten free', zoektermen: ['cornflakes', 'glutenvrij', 'maïsvlokken'], fodmapsoort: {}, portiegrootte: '250ml', notitie: '' },
+  { naam: 'Vlokken van tarwe, maïs, fruit & noten', emoji: '🥣', status: ['rood'], engelsNaam: 'Flakes of wheat, corn, fruit, nuts', zoektermen: ['tarwe', 'vlokken', 'fruit', 'noten'], fodmapsoort: { fructanen: 'rood' }, portiegrootte: '125ml', notitie: '' },
+  { naam: 'Vlokken van quinoa of rijst', emoji: '🥣', status: ['groen'], engelsNaam: 'Flakes, quinoa or rice', zoektermen: ['quinoa', 'rijst', 'vlokken'], fodmapsoort: {}, portiegrootte: '250ml', notitie: '' },
+  { naam: 'Muesli, glutenvrij', emoji: '🥣', status: ['rood'], engelsNaam: 'Muesli, gluten free', zoektermen: ['muesli', 'glutenvrij'], fodmapsoort: { fructanen: 'rood', GOS: 'geel', sorbitol: 'rood' }, portiegrootte: '125ml', notitie: '' },
+  { naam: 'Muesli, naturel', emoji: '🥣', status: ['rood'], engelsNaam: 'Muesli, plain', zoektermen: ['muesli', 'naturel'], fodmapsoort: { fructose: 'rood' }, portiegrootte: '125ml', notitie: '' },
+  { naam: 'Havermout', emoji: '🥣', status: ['groen', 'geel'], engelsNaam: 'Oats', zoektermen: ['havermout', 'haver', 'snelkokend', 'oats'], fodmapsoort: { GOS: 'geel', fructanen: 'geel' }, portiegrootte: { groen: '63ml', geel: '125ml' }, notitie: 'Geel bij gewone havermout, groen bij 63g droge havermout.' },
+  { naam: 'Havermout, gewalst', emoji: '🥣', status: ['groen'], engelsNaam: 'Oats, rolled', zoektermen: ['havermout', 'haver', 'gewalst', 'rolled oats'], fodmapsoort: {}, portiegrootte: '125ml', notitie: '' },
+  { naam: 'Gepofte of gepopte rijst', emoji: '🥣', status: ['geel'], engelsNaam: 'Rice, puffed or popped', zoektermen: ['gepofte rijst', 'gepopte rijst', 'pufrijst'], fodmapsoort: { fructanen: 'geel' }, portiegrootte: '250ml', notitie: '' },
+  { naam: 'Tarwezemelen pellets', emoji: '🥣', status: ['rood'], engelsNaam: 'Wheat bran, pellets', zoektermen: ['tarwezemelen', 'zemelen', 'bran'], fodmapsoort: { fructanen: 'rood', GOS: 'rood', fructose: 'geel' }, portiegrootte: '125ml', notitie: '' },
+  { naam: 'Volkoren haverkoekjes', emoji: '🥣', status: ['groen'], engelsNaam: 'Wholegrain oat cereal biscuit', zoektermen: ['haverkoekjes', 'biscuit', 'volkoren'], fodmapsoort: {}, portiegrootte: '2 biscuits, 50g', notitie: '' },
 
+  // Granen & Graanproducten
+  { naam: 'Couscous', emoji: '🍚', status: ['rood'], engelsNaam: 'Couscous', zoektermen: ['couscous'], fodmapsoort: { fructanen: 'rood' }, portiegrootte: '250ml, gekookt', notitie: '' },
+  { naam: 'Couscous, glutenvrij (maïs)', emoji: '🍚', status: ['groen'], engelsNaam: 'Couscous, gluten free (maize / corn)', zoektermen: ['couscous', 'glutenvrij', 'mais'], fodmapsoort: {}, portiegrootte: '125ml, gekookt', notitie: '' },
+  { naam: 'Gnocchi, tarwe', emoji: '🍝', status: ['rood'], engelsNaam: 'Gnocchi, wheat', zoektermen: ['gnocchi', 'malloreddus'], fodmapsoort: { fructanen: 'rood' }, portiegrootte: '250m), gekookt', notitie: '' },
+  { naam: 'Noedels, rijst', emoji: '🍜', status: ['groen'], engelsNaam: 'Noodles, rice', zoektermen: ['noedels', 'rijst', 'rijstnoedels'], fodmapsoort: {}, portiegrootte: '250ml, gekookt', notitie: '' },
+  { naam: 'Noedels, tarwe', emoji: '🍜', status: ['rood'], engelsNaam: 'Noodles, wheat', zoektermen: ['noedels', 'tarwe', 'tarwenoedels'], fodmapsoort: { fructanen: 'rood', fructose: "rood" }, portiegrootte: '250ml, gekookt', notitie: '' },
+  { naam: 'Haverzemelen', emoji: '🌾', status: ['groen'], engelsNaam: 'Oat bran', zoektermen: ['haverzemelen', 'haver', 'zemelen'], fodmapsoort: {}, portiegrootte: '2 eetl.', notitie: '' },
+  { naam: 'Pasta, glutenvrij', emoji: '🍝', status: ['groen'], engelsNaam: 'Pasta, gluten free', zoektermen: ['pasta', 'glutenvrij'], fodmapsoort: {}, portiegrootte: '250ml, gekookt', notitie: '' },
+  { naam: 'Pasta, quinoa', emoji: '🍝', status: ['groen'], engelsNaam: 'Pasta, quinoa', zoektermen: ['pasta', 'quinoa'], fodmapsoort: {}, portiegrootte: '250ml, gekookt', notitie: '' },
+  { naam: 'Pasta, spelt', emoji: '🍝', status: ['rood'], engelsNaam: 'Pasta, spelt', zoektermen: ['pasta', 'spelt'], fodmapsoort: { fructanen: 'rood' }, portiegrootte: '250ml, gekookt', notitie: '' },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // Fruit
-
-  // Granen & Brood
-
-  // Noten & Zaden
-
-  // Zuivel & Alternatieven
-
-  // Vlees, Vis & Eieren
-
-  // Overig
-
-  // ─── GEEL: Met mate eten ─────────────────────────────────────────────────
-
-
-  // ─── ROOD: Beter vermijden ───────────────────────────────────────────────
-
-  // Groenten
-
-  // Fruit
-
-  // Granen & Brood
-
-  // Zuivel
-
-  // Peulvruchten
-
-
-  // Overig
 
   // Meme
   { naam: 'Baksteen', emoji: '🧱', status: ['rood'], engelsNaam: 'brick', zoektermen: [], notitie: 'Maat, nee.' },
